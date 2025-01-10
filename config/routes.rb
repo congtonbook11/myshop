@@ -1,4 +1,25 @@
 Rails.application.routes.draw do
+  resources :products
+  root "products#index"
+
+  get "/products", to: "products#index"
+
+  get "/products/new", to: "products#new"
+  post "/products", to: "products#create"
+
+  get "/products/:id", to: "products#show"
+
+  get "/products/:id/edit", to: "products#edit"
+  patch "/products/:id", to: "products#update"
+  put "/products/:id", to: "products#update"
+
+  delete "/products/:id", to: "products#destroy"
+
+  post "/products", to: "products#create"
+  get "/products/:id", to: "products#show"
+  get "/blog/:title", to: "blog#show"
+  get "/blog/:slug", to: "blog#show"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
